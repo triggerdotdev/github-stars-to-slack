@@ -1,0 +1,31 @@
+{
+  "name": "@trigger.dev/templates-github-stars-to-slack",
+  "version": "1.0.0",
+  "description": "A Trigger.dev template that sends a Slack message when a GitHub repo gets a new star",
+  "main": "dist/index.js",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run build:tsc",
+    "build:tsc": "tsc",
+    "dev": "tsx --require ./node_modules/dotenv/config src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@trigger.dev/github": "^0.1.20",
+    "@trigger.dev/sdk": "^0.2.13",
+    "@trigger.dev/slack": "^0.1.20",
+    "zod": "^3.20.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/node": "16",
+    "dotenv": "^16.0.3",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.5.0",
+    "tsx": "^3.12.2",
+    "typescript": "^4.9.4"
+  }
+}
