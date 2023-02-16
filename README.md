@@ -44,7 +44,7 @@ We've made it really easy to deploy this repo to Render.com, if you don't alread
 
 ## 💻 Run locally
 
-First, clone the repo and install dependencies:
+First, in your terminal of choice, clone the repo and install dependencies:
 
 ```sh
 git clone https://github.com/triggerdotdev/github-stars-to-slack.git
@@ -52,10 +52,11 @@ cd github-stars-to-slack
 npm install
 ```
 
-Then create a `.env` file with your development Trigger.dev API Key:
+Then create a `.env` file at the root of the repository (it's already gitignored) with your development Trigger.dev API Key and GITHUB_REPOSITORY:
 
-```sh
-echo "TRIGGER_API_KEY=<APIKEY>" >> .env
+```
+TRIGGER_API_KEY=<your api key>
+GITHUB_REPOSITORY=<your github repository> # e.g. triggerdotdev/trigger.dev
 ```
 
 And finally you are ready to run the process:
@@ -69,6 +70,7 @@ You should see a message like the following:
 ```
 [trigger.dev]  ✨ Connected and listening for events [github-stars-to-slack]
 ```
+
 
 ## 🧪 Test it
 
