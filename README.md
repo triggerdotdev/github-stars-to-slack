@@ -11,12 +11,19 @@ const repo =
   process.env.GITHUB_REPOSITORY ?? "triggerdotdev/github-stars-to-slack";
 
 new Trigger({
+  // Give your Trigger a stable ID
   id: "github-stars-to-slack",
   name: "GitHub Stars to Slack",
+  // This will register a webhook with the repo
+  // and trigger whenever the repo gets a new star
   on: github.events.newStarEvent({
     repo,
   }),
+  // The run function will get called once per "new star" event
+  // See https://docs.trigger.dev/integrations/apis/github/events/new-star
   run: async (event) => {
+    // Posts a new message to the "github-stars" slack channel.
+    // See https://docs.trigger.dev/integrations/apis/slack/actions/post-message
     await slack.postMessage("⭐️", {
       channelName: "github-stars",
       text: `New GitHub star from \n<${event.sender.html_url}|${event.sender.login}>. You now have ${event.repository.stargazers_count} stars!`,
@@ -29,18 +36,6 @@ new Trigger({
 
 1. Make sure and update the `repo` parameter to point to a GitHub repository you manage by setting the `GITHUB_REPOSITORY` environment variable.
 2. Feel free to customize [postMessage](https://docs.trigger.dev/integrations/apis/slack/actions/post-message) call with more data from the [newStar Event](https://docs.trigger.dev/integrations/apis/github/events/new-star#event) and change the channel name.
-
-## 🚀 Deploy
-
-We've made it really easy to deploy this repo to Render.com, if you don't already have a Node.js server to host your triggers.
-
-[Render.com](https://render.com) is a super-fast way to deploy webapps and servers (think of it like a modern Heroku)
-
-<a href="https://render.com/deploy?repo=https://github.com/triggerdotdev/github-stars-to-slack">
-  <img width="144px" src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
-</a>
-
-> **Note** Make sure you use your "live" trigger.dev API Key when deploying to a server
 
 ## 💻 Run locally
 
@@ -70,7 +65,6 @@ You should see a message like the following:
 ```
 [trigger.dev]  ✨ Connected and listening for events [github-stars-to-slack]
 ```
-
 
 ## 🧪 Test it
 
@@ -105,3 +99,15 @@ Once you authenticate your Slack workspace, the run will pickup where it left of
 Head over to slack to see your newly created message:
 
 ![slack message](https://imagedelivery.net/3TbraffuDZ4aEf8KWOmI_w/5c238a76-22ee-4837-9379-e3c673211100/public)
+
+## 🚀 Deploy
+
+We've made it really easy to deploy this repo to Render.com, if you don't already have a Node.js server to host your triggers.
+
+[Render.com](https://render.com) is a super-fast way to deploy webapps and servers (think of it like a modern Heroku)
+
+<a href="https://render.com/deploy?repo=https://github.com/triggerdotdev/github-stars-to-slack">
+  <img width="144px" src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
+</a>
+
+> **Note** Make sure you use your "live" trigger.dev API Key when deploying to a server
