@@ -32,39 +32,24 @@ new Trigger({
 }).listen();
 ```
 
+## 🔧 Install
+
+You can easily create a new project interactively based on this template by running:
+
+```sh
+npm create trigger@latest github-stars-to-slack
+# or
+yarn create trigger github-stars-to-slack
+# or
+pnpm create trigger@latest github-stars-to-slack
+```
+
+Follow the instructions in the CLI to get up and running locally in <30s.
+
 ## ✍️ Customize
 
 1. Make sure and update the `repo` parameter to point to a GitHub repository you manage by setting the `GITHUB_REPOSITORY` environment variable.
 2. Feel free to customize [postMessage](https://docs.trigger.dev/integrations/apis/slack/actions/post-message) call with more data from the [newStar Event](https://docs.trigger.dev/integrations/apis/github/events/new-star#event) and change the channel name.
-
-## 💻 Run locally
-
-First, in your terminal of choice, clone the repo and install dependencies:
-
-```sh
-git clone https://github.com/triggerdotdev/github-stars-to-slack.git
-cd github-stars-to-slack
-npm install
-```
-
-Then create a `.env` file at the root of the repository (it's already gitignored) with your development Trigger.dev API Key and GITHUB_REPOSITORY:
-
-```
-TRIGGER_API_KEY=<your api key>
-GITHUB_REPOSITORY=<your github repository> # e.g. triggerdotdev/trigger.dev
-```
-
-And finally you are ready to run the process:
-
-```sh
-npm run dev
-```
-
-You should see a message like the following:
-
-```
-[trigger.dev]  ✨ Connected and listening for events [github-stars-to-slack]
-```
 
 ## 🧪 Test it
 
@@ -99,15 +84,3 @@ Once you authenticate your Slack workspace, the run will pickup where it left of
 Head over to slack to see your newly created message:
 
 ![slack message](https://imagedelivery.net/3TbraffuDZ4aEf8KWOmI_w/5c238a76-22ee-4837-9379-e3c673211100/public)
-
-## 🚀 Deploy
-
-We've made it really easy to deploy this repo to Render.com, if you don't already have a Node.js server to host your triggers.
-
-[Render.com](https://render.com) is a super-fast way to deploy webapps and servers (think of it like a modern Heroku)
-
-<a href="https://render.com/deploy?repo=https://github.com/triggerdotdev/github-stars-to-slack">
-  <img width="144px" src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
-</a>
-
-> **Note** Make sure you use your "live" trigger.dev API Key when deploying to a server
