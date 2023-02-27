@@ -37,7 +37,7 @@ new Trigger({
 You can easily create a new project interactively based on this template by running:
 
 ```sh
-npm create trigger@latest github-stars-to-slack
+npx create-trigger@latest github-stars-to-slack
 # or
 yarn create trigger github-stars-to-slack
 # or
