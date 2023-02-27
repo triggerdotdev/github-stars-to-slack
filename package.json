@@ -14,9 +14,9 @@
   "keywords": [],
   "author": "",
   "dependencies": {
-    "@trigger.dev/github": "^0.1.23-next.3",
-    "@trigger.dev/sdk": "^0.2.16-next.3",
-    "@trigger.dev/slack": "^0.1.23-next.3",
+    "@trigger.dev/github": "^0.1.22",
+    "@trigger.dev/sdk": "^0.2.15",
+    "@trigger.dev/slack": "^0.1.22",
     "zod": "^3.20.2"
   },
   "devDependencies": {
