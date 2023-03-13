@@ -5,11 +5,8 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && npm run build:tsc",
-    "build:tsc": "tsc",
     "dev": "tsx watch --require ./node_modules/dotenv/config src/index.ts",
-    "start": "node dist/index.js"
+    "start": "tsx src/index.ts"
   },
   "keywords": [],
   "author": "",
