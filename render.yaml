@@ -3,7 +3,7 @@ services:
     env: node
     name: github-stars-to-slack
     buildCommand: "npm install"
-    startCommand: "node start"
+    startCommand: "npm start"
     autoDeploy: true
     plan: starter
     envVars:
